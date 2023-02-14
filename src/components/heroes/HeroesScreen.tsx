@@ -6,7 +6,6 @@ import {
   useNavigate,
 } from "react-router-dom";
 import { getHeroesById } from "../../selectors/getHeroes";
-import MarvelScreen from "../marvel/MarvelScreen";
 import { useMemo } from "react";
 
 const HeroesScreen = () => {
