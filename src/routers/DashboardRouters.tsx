@@ -13,7 +13,7 @@ const DashboardRouters = () => {
         <Routes>
           <Route path="/marvel" element={<MarvelScreen />}></Route>
           <Route path="/dc" element={<DcScreen />}></Route>
-          <Route path="/heroe/:heroeId" element={<HeroesScreen />}></Route>
+          <Route path="/hero/:heroId" element={<HeroesScreen />}></Route>
           <Route path="*" element={<MarvelScreen />}></Route>
         </Routes>
       </div>

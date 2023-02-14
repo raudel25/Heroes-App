@@ -9,8 +9,8 @@ type Heroe = {
   characters: string;
 };
 
-const HeroeCard = ({ heroe }: { heroe: Heroe }) => {
-  const { id, superhero, alter_ego, first_appearance, characters } = heroe;
+const HeroeCard = ({ hero }: { hero: Heroe }) => {
+  const { id, superhero, alter_ego, first_appearance, characters } = hero;
 
   return (
     <div className="card ms-3" style={{ maxWidth: 540 }}>
@@ -32,7 +32,7 @@ const HeroeCard = ({ heroe }: { heroe: Heroe }) => {
             <p className="card-text">
               <small className="text-muted">{first_appearance}</small>
             </p>
-            <Link to={`./heroe/${id}`}>More...</Link>
+            <Link to={`./hero/${id}`}>More...</Link>
           </div>
         </div>
       </div>

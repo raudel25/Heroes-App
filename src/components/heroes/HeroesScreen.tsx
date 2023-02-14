@@ -1,10 +1,53 @@
+import { Route, Routes, useParams, useNavigate } from "react-router-dom";
+import { getHeroesById } from "../../selectors/getHeroes";
+import MarvelScreen from "../marvel/MarvelScreen";
+
 const HeroesScreen = () => {
-    return (
-      <>
-        <h1>Marvel Screen</h1>
-      </>
-    );
+  const { heroId } = useParams();
+  const hero = getHeroesById(heroId);
+  const navigate = useNavigate();
+
+  const handleReturn = () => {
+    navigate(-1);
   };
-  
-  export default HeroesScreen;
-   
+
+  if (!hero)
+    return (
+      <Routes>
+        <Route path="*" element={<MarvelScreen />}></Route>
+      </Routes>
+    );
+
+  return (
+    <div className="row mt-5">
+      <div className="col-4">
+        <img
+          src={`../assets/heroes/${heroId}.jpg`}
+          alt={hero.superhero}
+          className="img-thumbnail"
+        />
+      </div>
+      <div className="col-8">
+        <h3>{hero.superhero}</h3>
+        <ul className="list-group list-group-flush">
+          <li className="list-group-item">
+            <b>Alter ego:</b> {hero.alter_ego}
+          </li>
+          <li className="list-group-item">
+            <b>Publisher:</b> {hero.publisher}
+          </li>
+          <li className="list-group-item">
+            <b>First appearance:</b> {hero.first_appearance}
+          </li>
+        </ul>
+        <h5>Characters</h5>
+        <p>{hero.characters}</p>
+        <button className="btn btn-outline-info" onClick={handleReturn}>
+          Return
+        </button>
+      </div>
+    </div>
+  );
+};
+
+export default HeroesScreen;
