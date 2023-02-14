@@ -1,10 +1,11 @@
-import { getHeroesById, getHeroesByPublisher } from "../../selectors/getHeroes";
+import { getHeroesByPublisher } from "../../selectors/getHeroes";
 import HeroeCard from "./HeroeCard";
+import { useMemo } from "react";
 
 const HeroesList = ({ publisher }: { publisher: string }) => {
-  const heroes = getHeroesByPublisher(publisher);
+  const heroes = useMemo(() => getHeroesByPublisher(publisher), [publisher]);
   return (
-    <div className="card-columns">
+    <div className="card-columns animate__animated animate__bounce">
       {heroes.map((hero) => (
         <HeroeCard key={hero.id} hero={hero} />
       ))}

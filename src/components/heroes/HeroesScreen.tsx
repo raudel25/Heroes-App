@@ -1,10 +1,11 @@
 import { Route, Routes, useParams, useNavigate } from "react-router-dom";
 import { getHeroesById } from "../../selectors/getHeroes";
 import MarvelScreen from "../marvel/MarvelScreen";
+import { useMemo } from "react";
 
 const HeroesScreen = () => {
   const { heroId } = useParams();
-  const hero = getHeroesById(heroId);
+  const hero = useMemo(() => getHeroesById(heroId), [heroId]);
   const navigate = useNavigate();
 
   const handleReturn = () => {
@@ -24,7 +25,7 @@ const HeroesScreen = () => {
         <img
           src={`../assets/heroes/${heroId}.jpg`}
           alt={hero.superhero}
-          className="img-thumbnail"
+          className="img-thumbnail animate__animated animate__fadeInLeft"
         />
       </div>
       <div className="col-8">
