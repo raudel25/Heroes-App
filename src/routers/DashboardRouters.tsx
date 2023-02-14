@@ -6,16 +6,18 @@ import { Navbar } from "../components/ui/Navbar";
 
 const DashboardRouters = () => {
   return (
-    <div>
+    <>
       <Navbar />
 
-      <Routes>
-        <Route path="/marvel" element={<MarvelScreen />}></Route>
-        <Route path="/dc" element={<DcScreen />}></Route>
-        <Route path="/heroe/:heroeId" element={<HeroesScreen />}></Route>
-        <Route path="*" element={<MarvelScreen />}></Route>
-      </Routes>
-    </div>
+      <div className="container">
+        <Routes>
+          <Route path="/marvel" element={<MarvelScreen />}></Route>
+          <Route path="/dc" element={<DcScreen />}></Route>
+          <Route path="/heroe/:heroeId" element={<HeroesScreen />}></Route>
+          <Route path="*" element={<MarvelScreen />}></Route>
+        </Routes>
+      </div>
+    </>
   );
 };
 
