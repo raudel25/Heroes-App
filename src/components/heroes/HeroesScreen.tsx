@@ -1,4 +1,10 @@
-import { Route, Routes, useParams, useNavigate } from "react-router-dom";
+import {
+  Route,
+  Routes,
+  Navigate,
+  useParams,
+  useNavigate,
+} from "react-router-dom";
 import { getHeroesById } from "../../selectors/getHeroes";
 import MarvelScreen from "../marvel/MarvelScreen";
 import { useMemo } from "react";
@@ -12,12 +18,16 @@ const HeroesScreen = () => {
     navigate(-1);
   };
 
-  if (!hero)
+  if (!hero) {
     return (
       <Routes>
-        <Route path="*" element={<MarvelScreen />}></Route>
+        <Route
+          path="*"
+          element={<Navigate to="/marvel" replace></Navigate>}
+        ></Route>
       </Routes>
     );
+  }
 
   return (
     <div className="row mt-5">

@@ -9,7 +9,7 @@ type Heroe = {
   characters: string;
 };
 
-const HeroeCard = ({ hero }: { hero: Heroe }) => {
+const HeroCard = ({ hero }: { hero: Heroe }) => {
   const { id, superhero, alter_ego, first_appearance, characters } = hero;
 
   return (
@@ -32,7 +32,7 @@ const HeroeCard = ({ hero }: { hero: Heroe }) => {
             <p className="card-text">
               <small className="text-muted">{first_appearance}</small>
             </p>
-            <Link to={`./hero/${id}`}>More...</Link>
+            <Link to={`/hero/${id}`}>More...</Link>
           </div>
         </div>
       </div>
@@ -40,4 +40,4 @@ const HeroeCard = ({ hero }: { hero: Heroe }) => {
   );
 };
 
-export default HeroeCard;
+export default HeroCard;
