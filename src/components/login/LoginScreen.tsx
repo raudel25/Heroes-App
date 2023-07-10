@@ -1,8 +1,19 @@
 import { useNavigate } from "react-router-dom";
+import { useContext } from "react";
+import AuthContext from "../../auts/AuthContext";
+import types from "../../types/types";
 
 const LoginScreen = () => {
+  const { dispatch } = useContext(AuthContext);
+
   const navigate = useNavigate();
+
   const handleClick = () => {
+    dispatch({
+      type: types.login,
+      name: "Raudel",
+    });
+
     navigate("/");
   };
 
