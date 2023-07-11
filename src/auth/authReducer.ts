@@ -11,7 +11,7 @@ const authReducer = (_ = {}, action: { type: string; name: string }) => {
     default:
       return {
         name: "",
-        logged: true,
+        logged: false,
       };
   }
 };

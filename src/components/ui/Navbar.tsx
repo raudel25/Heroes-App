@@ -1,6 +1,6 @@
 import { Link, NavLink } from "react-router-dom";
 import { useContext } from "react";
-import AuthContext from "../../auts/AuthContext";
+import AuthContext from "../../auth/AuthContext";
 import types from "../../types/types";
 import { useNavigate } from "react-router-dom";
 
